@@ -1,0 +1,17 @@
+
+#!/bin/bash
+
+# Note that the new job gets a new name
+#SBATCH --job-name=my_python_job
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=4
+#SBATCH --time=00:01:00
+#SBATCH --account=phys033186
+#SBATCH --partition=teach_cpu
+
+# Load the anaconda Python module
+module load languages/python/3.12.3
+
+
+# Run the Python script from the command line
+mpirun -np 4 python cc.py 100 100 0.5 0
